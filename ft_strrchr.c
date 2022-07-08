@@ -25,12 +25,12 @@ char	*strrchr(const char *s, int c)
 	{
 		if (s[i] == c)
 		{
-			ret = s + i;
+			ret = (char *)(s + i);
 			break ;
 		}
 		--i;
 	}
 	if (s[i] == c)
-		ret = s + i;
+		ret = (char *)(s + i);
 	return (ret);
 }
