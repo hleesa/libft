@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:24:52 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/07 16:13:53 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/10 14:47:31 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*dp;
-	unsigned char	*sp;
+	size_t				i;
+	unsigned char		*dp;
+	const unsigned char	*sp;
 
-	if (src == 0)
+	if (dst == 0 && src == 0)
+		return (0);
+	if (len == 0)
 		return (dst);
 	i = 0;
 	dp = (unsigned char *)dst;
-	sp = (unsigned char *)src;
+	sp = (const unsigned char *)src;
 	while (i < len)
 	{
-		if (dp  < sp)
+		if (dp < sp)
 		{
 			dp[i] = sp[i];
 			++i;

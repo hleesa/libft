@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 16:53:49 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/04 21:13:30 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/10 14:45:45 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	unsigned char * dp;
-	unsigned char * sp;
+	size_t			i;
+	unsigned char	*dp;
+	unsigned char	*sp;
 
 	if (dst == 0 && src == 0)
 		return (0);

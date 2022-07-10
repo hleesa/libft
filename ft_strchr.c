@@ -6,13 +6,13 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 19:50:11 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/08 15:21:53 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/10 17:49:55 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
 
