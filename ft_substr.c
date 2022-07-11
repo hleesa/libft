@@ -17,15 +17,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*ret;
 	size_t	i;
 
+	if (start >= ft_strlen(s))
+		len = 0;
 	ret = (char *) malloc(len + 1);
 	if (ret == 0)
 		return (0);
 	i = 0;
-	while (i < len)
-	{
-		ret[i] = s[start + i];
-		++i;
-	}
-	ret[i] = 0;
+	ft_memmove(ret, s + start, len);
+	ret[len] = 0;
 	return (ret);
 }

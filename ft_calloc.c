@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:01:23 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/08 15:21:12 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/11 16:03:49 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,10 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
 	void	*ret;
 
-	ret = malloc(size * count);
-	if (ret == 0)
-		return (0);
-	i = 0;
-	while (i < count)
-	{
-		((unsigned char *) ret)[i * size] = 0;
-		++i;
-	}
+	ret = malloc(count * size);
+	if (ret)
+		ft_bzero(ret, count * size);
 	return (ret);
 }

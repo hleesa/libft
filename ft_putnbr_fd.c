@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:26:28 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/09 21:31:57 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/11 18:02:10 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		sign *= -1;
+		sign = -1;
 	}
 	if (-10 < n && n < 10)
 	{
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar_fd(sign * n + '0', fd);
 		return ;
 	}
-	ft_putnbr_fd(n / 10, fd);
-	ft_putnbr_fd(n % 10, fd);
+	ft_putnbr_fd(n / 10 * sign, fd);
+	ft_putchar_fd(n % 10 * sign + '0', fd);
 	return ;
 }

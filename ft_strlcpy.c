@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:36:18 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/07 16:15:39 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/11 14:25:00 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
+	const size_t	src_len = ft_strlen(src);
 
-	i = 0;
-	while (src[i] != 0 && i + 1 < dstsize)
+	if (src_len + 1 < dstsize)
+		ft_memmove(dst, src, src_len + 1);
+	else if (dstsize != 0)
 	{
-		dst[i] = src[i];
-		++i;
+		ft_memmove(dst, src, dstsize - 1);
+		dst[dstsize - 1] = '\0';
 	}
-	if (dstsize != 0)
-		dst[i] = 0;
-	return (i);
+	return (src_len);
 }

@@ -49,13 +49,13 @@ void	to_string(int n, char *str, size_t idx, size_t len)
 
 char	*ft_itoa(int n)
 {
-	char	*ret;
-	size_t	size;
+	char			*ret;
+	const size_t	size = get_size(n);
 
-	size = get_size(n);
 	ret = (char *) malloc(size + 1);
 	if (ret == 0)
 		return (0);
 	to_string(n, ret, size - 1, size);
+	ret[size] = '\0';
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 12:29:10 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/08 15:23:05 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/11 22:07:18 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,34 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	hi;
-	size_t	ni;
-	size_t	nsize;
+	size_t			hay_idx;
+	const size_t	hay_len = ft_strlen(haystack);
+	const size_t 	need_len = ft_strlen(needle);
 
 	if (needle == 0)
-		return ((char *)(haystack));
-	hi = 0;
-	nsize = ft_strlen(needle);
-	while (hi + nsize <= len)
+		return (0);
+	hay_idx = 0;
+	while (hay_idx + need_len <= hay_len && hay_idx < len)
 	{
-		ni = 0;
-		while (haystack[hi + ni] == needle[ni])
-			++ni;
-		if (ni == nsize)
-			return ((char *)(haystack + hi));
-		++hi;
+		if (ft_strncmp(haystack + hay_idx, needle, need_len) == 0)
+			return ((char *) (haystack + hay_idx));
+		++hay_idx;
 	}
 	return (0);
+}
+
+#include <string.h>
+#include <stdio.h>
+int main() 
+{
+	char a[] = "asdfasdfafds";
+	printf("%p \n", ft_strnstr(a, "afds", 15));
+	printf("%p \n", strnstr(a, "afds", 15));
+	printf("-------------------------------\n");
+	printf("%p \n", ft_strnstr(a, "afds", 9));
+	printf("%p \n", strnstr(a, "afds", 9));
+	printf("-------------------------------\n");
+	printf("%p \n", ft_strnstr(a, "", 9));
+	printf("%p \n", strnstr(a, "", 9));
+	printf("-------------------------------\n");
 }
