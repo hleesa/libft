@@ -37,7 +37,7 @@ SRCS = \
 	ft_toupper.c
 SRC_B= \
 	ft_lstnew.c \
-#	ft_lstadd_front.c \
+	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
 	ft_lstadd_back.c \
@@ -45,13 +45,9 @@ SRC_B= \
 	ft_lstclear.c \
 	ft_lstiter.c \
 	ft_lstmap.c
-BASIC_OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(SRC_B:.c=.o)
-ifdef WITH_BONUS
-	OBJS = ${BASIC_OBJS} ${BONUS_OBJS}
-else
-	OBJS = ${BASIC_OBJS}
-endif
+OBJS = $(SRCS:.c=.o)
+OBJS_B = $(SRC_B:.c=.o)
+
 NAME = libft.a
 
 all: $(NAME)
@@ -59,8 +55,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-bonus:
-	make WITH_BONUS=1 all
+bonus: $(NAME) $(OBJS_B)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
