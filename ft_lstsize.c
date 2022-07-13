@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 21:01:32 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/12 21:01:34 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/13 15:40:42 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (lst)
@@ -23,3 +23,4 @@ int	ft_lstsize(t_list *lst)
 		lst = lst->next;
 	}
 	return (size);
+}

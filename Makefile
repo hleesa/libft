@@ -1,5 +1,19 @@
-CC = gcc
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/13 12:29:43 by salee2            #+#    #+#              #
+#    Updated: 2022/07/13 16:43:20 by salee2           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libft.a
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
+
 SRCS = \
 	ft_atoi.c \
 	ft_bzero.c \
@@ -45,23 +59,26 @@ SRC_B= \
 	ft_lstclear.c \
 	ft_lstiter.c \
 	ft_lstmap.c
+
 OBJS = $(SRCS:.c=.o)
 OBJS_B = $(SRC_B:.c=.o)
-
-NAME = libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-bonus: $(NAME) $(OBJS_B)
+bonus: $(OBJS) $(OBJS_B)
+	ar rcs $(NAME) $^
+
+#bonus: $(NAME)
+	#ar rcs $(NAME) $(OBJS_B)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_B)
 
 fclean: clean
 	rm -f $(NAME)

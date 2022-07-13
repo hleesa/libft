@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 20:41:18 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/12 20:41:21 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/13 15:26:27 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->next = *lst;
-	lst = &new;
+	if (*lst != 0)
+		new->next = (*lst)->next;
+	*lst = new;
+	return ;
 }

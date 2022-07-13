@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 21:51:43 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/12 20:02:29 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/13 16:30:06 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif //LIBFT_H

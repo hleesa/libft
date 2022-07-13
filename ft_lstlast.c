@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 21:06:02 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/12 21:06:04 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/13 15:40:13 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst)
+	t_list	*temp;
+
+	temp = lst;
+	while (temp)
 	{
-		if (lst->next == 0)
-			return (lst);
+		if (temp->next == 0)
+			return (temp);
+		temp = temp->next;
 	}
 	return (0);
 }

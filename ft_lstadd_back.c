@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 21:08:24 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/12 21:08:25 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/13 15:54:56 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,10 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 
-	if (*lst == 0)
-	{
+	temp = ft_lstlast(*lst);
+	if (temp == 0)
 		*lst = new;
-		return;
-	}
-	temp = *lst;
-	while (temp->next)
-		temp = temp->next;
-	new->next = temp->next;
-	temp = new;
-	return;
+	else
+		temp->next = new;
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 21:19:10 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/12 21:19:11 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/13 16:29:28 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	
+	del(lst->content);
+	free(lst);
+	return ;
 }
