@@ -6,7 +6,7 @@
 #    By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 12:29:43 by salee2            #+#    #+#              #
-#    Updated: 2022/07/13 16:43:20 by salee2           ###   ########.fr        #
+#    Updated: 2022/07/15 01:21:25 by salee2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,25 +60,36 @@ SRC_B= \
 	ft_lstiter.c \
 	ft_lstmap.c
 
-OBJS = $(SRCS:.c=.o)
-OBJS_B = $(SRC_B:.c=.o)
+OBJS_M = $(SRCS:.c=.o)
+OBJS_B = $(OBJS_M) $(SRC_B:.c=.o)
+
+#ifdef WITH_BONUS
+#	OBJS = $(OBJS_M) $(OBJS_B)
+#else
+#	OBJS = $(OBJS_M)
+#endif
+#
+#all: $(NAME)
+#
+#$(NAME): $(OBJS)
+#	ar rcs $@ $^
+#
+#bonus:
+#	make WITH_BONUS=1
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS_M)
 	ar rcs $@ $^
 
-bonus: $(OBJS) $(OBJS_B)
-	ar rcs $(NAME) $^
-
-#bonus: $(NAME)
-	#ar rcs $(NAME) $(OBJS_B)
+bonus: $(OBJS_B)
+	make OBJS_M="$(OBJS_B)"
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJS) $(OBJS_B)
+	rm -f $(OBJS_M) $(OBJS_B)
 
 fclean: clean
 	rm -f $(NAME)
