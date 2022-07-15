@@ -14,12 +14,13 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	char			*ret;
-	const size_t	s_len = ft_strlen(s);
+	char	*ret;
+	size_t	i;
+	size_t	s_len;
 
 	if (s == 0)
 		return (0);
+	s_len = ft_strlen(s);
 	if (start >= s_len)
 		len = 0;
 	else if (s_len < len + start)
@@ -32,15 +33,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ret[len] = '\0';
 	return (ret);
 }
-/*
-#include <stdio.h>
-
-int main()
-{
-	char * a = ft_substr("hola", 2, 30);
-	printf("%s\n", a);
-
-
-}
-
-*/

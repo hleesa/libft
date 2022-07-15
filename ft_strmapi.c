@@ -14,10 +14,13 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*ret;
-	size_t			i;
-	const size_t	size = ft_strlen(s);
+	char	*ret;
+	size_t	i;
+	size_t	size;
 
+	if (s == 0)
+		return (0);
+	size = ft_strlen(s);
 	ret = (char *) malloc(size + 1);
 	if (ret == 0)
 		return (0);

@@ -14,12 +14,18 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*ret;
-	const size_t	s1len = ft_strlen(s1);
-	const size_t	s2len = ft_strlen(s2);
+	char	*ret;
+	size_t	s1len;
+	size_t	s2len;
 
 	if (s1 == 0 && s2 == 0)
 		return (0);
+	s1len = 0;
+	s2len = 0;
+	if (s1 != 0)
+		s1len = ft_strlen(s1);
+	if (s2 != 0)
+		s2len = ft_strlen(s2);
 	ret = (char *) malloc(s1len + s2len + 1);
 	if (ret == 0)
 		return (0);
