@@ -6,14 +6,13 @@
 #    By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 12:29:43 by salee2            #+#    #+#              #
-#    Updated: 2022/07/15 01:21:25 by salee2           ###   ########.fr        #
+#    Updated: 2022/07/15 15:43:06 by salee2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-
 SRCS = \
 	ft_atoi.c \
 	ft_bzero.c \
@@ -63,20 +62,6 @@ SRC_B= \
 OBJS_M = $(SRCS:.c=.o)
 OBJS_B = $(OBJS_M) $(SRC_B:.c=.o)
 
-#ifdef WITH_BONUS
-#	OBJS = $(OBJS_M) $(OBJS_B)
-#else
-#	OBJS = $(OBJS_M)
-#endif
-#
-#all: $(NAME)
-#
-#$(NAME): $(OBJS)
-#	ar rcs $@ $^
-#
-#bonus:
-#	make WITH_BONUS=1
-
 all: $(NAME)
 
 $(NAME): $(OBJS_M)
@@ -98,4 +83,3 @@ re: fclean
 	make all
 
 .PHONY: all bonus clean fclean re
-
