@@ -6,10 +6,11 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 13:12:30 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/15 15:59:55 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/16 14:41:37 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include "libft.h"
 
 int	isspace(int c)
@@ -19,11 +20,37 @@ int	isspace(int c)
 	return (0);
 }
 
+long long	toll(const char *str, long long sign, size_t i)
+{
+	int					is_over;
+	unsigned long long	acc;
+
+	is_over = 0;
+	acc = 0;
+	while (ft_isdigit(str[i]))
+	{
+		acc = acc * 10 + str[i] - '0';
+		if (acc > (unsigned long long) LONG_LONG_MAX)
+		{
+			is_over = 1;
+			break ;
+		}
+		++i;
+	}
+	if (is_over)
+	{
+		if (sign == 1)
+			return (LONG_LONG_MAX);
+		else
+			return (LONG_LONG_MIN);
+	}
+	return (sign * (long long) acc);
+}
+
 int	ft_atoi(const char *str)
 {
-	size_t			i;
-	int				sign;
-	unsigned int	acc;
+	size_t				i;
+	long long			sign;
 
 	i = 0;
 	sign = 1;
@@ -35,15 +62,5 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		++i;
 	}
-	acc = 0;
-	while (ft_isdigit(str[i]))
-	{
-		acc = acc * 10 + str[i] - '0';
-		if (sign == 1 && acc > 0x7fffffff)
-			return (-1);
-		else if (sign == -1 && acc > 0x80000000)
-			return (0);
-		++i;
-	}
-	return ((int)(sign * acc));
+	return ((int) toll(str, sign, i));
 }

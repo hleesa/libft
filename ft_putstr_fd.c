@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:19:19 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/09 21:36:19 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/16 14:20:12 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if(s != 0)
+	if (s != 0)
 		write(fd, s, ft_strlen(s));
 	return ;
 }
