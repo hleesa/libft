@@ -30,7 +30,7 @@ long long	toll(const char *str, long long sign, size_t i)
 	while (ft_isdigit(str[i]))
 	{
 		acc = acc * 10 + str[i] - '0';
-		if (acc > (unsigned long long) LONG_LONG_MAX)
+		if (acc >= (unsigned long long) LONG_LONG_MAX)
 		{
 			is_over = 1;
 			break ;
