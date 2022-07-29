@@ -39,11 +39,9 @@ void	free_all(char **ret, int word_idx)
 	while (word_idx >= 0)
 	{
 		free(ret[word_idx]);
-		ret[word_idx] = 0;
 		--word_idx;
 	}
 	free(ret);
-	ret = 0;
 	return ;
 }
 
@@ -68,7 +66,7 @@ char	*mystrdup(char const *s, char c, size_t *idx)
 		++i;
 	}
 	*idx += di;
-	ret[di] = 0;
+	ret[di] = '\0';
 	return (ret);
 }
 

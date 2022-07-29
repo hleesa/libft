@@ -65,7 +65,7 @@ OBJS_B = $(OBJS_M) $(SRC_B:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS_M)
-	ar rcs $@ $^
+	ar rcs $@ $?
 
 bonus: $(OBJS_B)
 	make OBJS_M="$(OBJS_B)"

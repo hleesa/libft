@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:06 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/16 14:20:31 by salee2           ###   ########.fr       */
+/*   Updated: 2022/07/29 19:05:36 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ret;
-	size_t	i;
 	size_t	s_len;
 
 	if (s == 0)
@@ -28,7 +27,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ret = (char *) malloc(len + 1);
 	if (ret == 0)
 		return (0);
-	i = 0;
 	ft_memmove(ret, s + start, len);
 	ret[len] = '\0';
 	return (ret);
