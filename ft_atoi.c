@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
+/*   By: salee2 <salee2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 13:12:30 by salee2            #+#    #+#             */
-/*   Updated: 2022/08/01 13:21:36 by salee2           ###   ########.fr       */
+/*   Created: 2022/08/01 13:24:41 by salee2            #+#    #+#             */
+/*   Updated: 2022/08/01 13:24:52 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ long long	toll(const char *str, long long sign, size_t i)
 
 int	ft_atoi(const char *str)
 {
-	size_t				i;
-	long long			sign;
+	size_t		i;
+	long long	sign;
 
 	i = 0;
 	sign = 1;
