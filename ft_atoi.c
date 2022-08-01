@@ -6,7 +6,7 @@
 /*   By: salee2 <salee2n@student.42seoul.k>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 13:12:30 by salee2            #+#    #+#             */
-/*   Updated: 2022/07/16 14:41:37 by salee2           ###   ########.fr       */
+/*   Updated: 2022/08/01 13:21:36 by salee2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,24 @@ int	isspace(int c)
 
 long long	toll(const char *str, long long sign, size_t i)
 {
-	int					is_over;
-	unsigned long long	acc;
+	long long		acc;
+	const long long	llmax = LONG_LONG_MAX;
 
-	is_over = 0;
 	acc = 0;
 	while (ft_isdigit(str[i]))
 	{
-		acc = acc * 10 + str[i] - '0';
-		if (acc >= (unsigned long long) LONG_LONG_MAX)
+		if (acc > llmax / 10 || (acc == llmax / 10 && str[i] - '0' \
+					> (llmax % 10)))
 		{
-			is_over = 1;
-			break ;
+			if (sign == 1)
+				return (LONG_LONG_MAX);
+			else
+				return (LONG_LONG_MIN);
 		}
+		acc = acc * 10 + str[i] - '0';
 		++i;
 	}
-	if (is_over)
-	{
-		if (sign == 1)
-			return (LONG_LONG_MAX);
-		else
-			return (LONG_LONG_MIN);
-	}
-	return (sign * (long long) acc);
+	return (sign * acc);
 }
 
 int	ft_atoi(const char *str)
