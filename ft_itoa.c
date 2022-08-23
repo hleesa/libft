@@ -27,7 +27,7 @@ size_t	get_size(int n)
 	return (size);
 }
 
-void	to_string(int n, char *str, size_t idx, size_t len)
+void	to_string(int n, char *str, size_t idx)
 {
 	int	sign;
 
@@ -42,7 +42,7 @@ void	to_string(int n, char *str, size_t idx, size_t len)
 		str[idx] = n * sign + '0';
 		return ;
 	}
-	to_string(n / 10 * sign, str, idx - 1, len);
+	to_string(n / 10 * sign, str, idx - 1);
 	str[idx] = n % 10 * sign + '0';
 	return ;
 }
@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 	ret = (char *) malloc(size + 1);
 	if (ret == 0)
 		return (0);
-	to_string(n, ret, size - 1, size);
+	to_string(n, ret, size - 1);
 	ret[size] = '\0';
 	return (ret);
 }
